@@ -13,7 +13,7 @@ import colorsys
 
 c = 18  # Number of brightness levels to reduce to (e.g., 18 shades of gray)
 
-fileName = 'veil0.png'  # Input image filename
+fileName = 'example.png'  # Input image filename
 img = Image.open(fileName)
 rgb = np.asarray(img)  # Convert image to NumPy array for pixel-wise processing
 
@@ -42,7 +42,7 @@ newRGBarray *= c  # Optional: scale values back up to integer range for easier i
 
 # Convert the processed RGB array back to an image (scale from [0,1] to [0,255]) and save as PNG
 im = Image.fromarray((newRGB * 255).astype(np.uint8))
-im.save("pixel_veil.png")
+im.save("pixel_" + fileName + ".png")
 
 # Export the reduced grayscale values to a CSV file, with values formatted to two decimals
 np.savetxt("pixel_veil_values.csv", newRGBarray, delimiter=",", fmt="%.2f")
