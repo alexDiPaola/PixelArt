@@ -11,7 +11,7 @@ import numpy as np
 from PIL import Image
 import colorsys
 
-c = 18  # Number of brightness levels to reduce to (e.g., 18 shades of gray)
+c = 5  # Number of brightness levels to reduce to (e.g., 18 shades of gray)
 
 fileName = 'example.png'  # Input image filename
 img = Image.open(fileName)
@@ -45,4 +45,4 @@ im = Image.fromarray((newRGB * 255).astype(np.uint8))
 im.save("pixel_" + fileName + ".png")
 
 # Export the reduced grayscale values to a CSV file, with values formatted to two decimals
-np.savetxt("pixel_veil_values.csv", newRGBarray, delimiter=",", fmt="%.2f")
+np.savetxt("pixel_" + fileName + "_values.csv", newRGBarray, delimiter=",", fmt="%.2f")
